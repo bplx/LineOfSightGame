@@ -10,7 +10,7 @@
 
 Sorry for the inconvienence. When the game is actually worth playing i'll put binaries for Linux and Windows.
 
-TODO's:
+# TODO's:
 - Make the wall texture something other than `icon.png`
 - Add a title screen
 - Add score and related effects

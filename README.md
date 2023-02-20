@@ -16,4 +16,5 @@ Sorry for the inconvienence. When the game is actually worth playing i'll put bi
 - Add score and related effects
 
 # Credits
-All art and code is by me, so far.
+All art and code is by me, so far. (except `icon.png` of course)
+Made in Godot Engine.

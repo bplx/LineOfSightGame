@@ -1,5 +1,6 @@
-# LineOfSightGame
-Awesome game (Awesome)
+# Line Of Sight
+![image](https://user-images.githubusercontent.com/74569315/220182068-0c63fc99-7c3e-477c-b71a-cbd0f3816661.png)
+### Use your lazer to move around and zap your enemies (controlled by your mouse!)
 
 # Build instructions
 1. Install Godot

@@ -1,5 +1,5 @@
 extends Node2D
-onready var tilemap = $TileMap
+onready var tilemap = $Map
 var zombieEntity = preload("res://Entities/Zombie.tscn")
 var zombieSpawner = preload("res://Entities/ZombieSpawner.tscn")
 

@@ -23,6 +23,7 @@ func _physics_process(delta):
 
 func die():
 	print("OWEI!!!")
+	Globals.score += 1
 	var object = deathParticles.instance()
 	object.position = position
 	object.emitting = true

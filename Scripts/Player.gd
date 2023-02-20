@@ -1,12 +1,16 @@
 extends KinematicBody2D
 
+signal died
+
 var velocity = Vector2.ZERO
 var mv = Vector2.ZERO
 var dead = false
 var attack_enabled = true
 var attack_active = false
+var startPB = 0
 
 func _ready():
+	startPB = Globals.pb
 	$AttackLine.add_point(Vector2(0,0), 0)
 	$AttackLine.add_point(get_local_mouse_position(), 1)
 	$AttackLine.default_color = Color(0, 0, 0, 0.3)
@@ -55,6 +59,7 @@ func die():
 	dead = true
 	set_physics_process(false)
 	$Sprite/CPUParticles2D.emitting = false
+	emit_signal("died")
 	$AnimationPlayer.play("Die")
 
 func _on_AttackDelay_timeout():
@@ -71,5 +76,10 @@ func _on_Area2D_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "End":
 		get_tree().reload_current_scene()
+	if anim_name == "Die":
+		if Globals.pb > startPB:
+			$"../CanvasLayer/Death/VBoxContainer/NewPB".visible = true
+		else:
+			$"../CanvasLayer/Death/VBoxContainer/NewPB".visible = false
 		
 	pass # Replace with function body.

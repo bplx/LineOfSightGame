@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0.png-ad73aed19b00fd55eeaf2db0cae8f8ff.stex"
+path="res://.import/Background.png-1394cb39b3525462b5bc05c905360f25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixil-frame-0.png"
-dest_files=[ "res://.import/pixil-frame-0.png-ad73aed19b00fd55eeaf2db0cae8f8ff.stex" ]
+source_file="res://Sprites/Game/Background.png"
+dest_files=[ "res://.import/Background.png-1394cb39b3525462b5bc05c905360f25.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

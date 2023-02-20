@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://defaulttileset.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/AttackLine.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/PB.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/NewPB.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Pause.gd" type="Script" id=11]
 
 [sub_resource type="SegmentShape2D" id=4]
 
@@ -192,6 +193,13 @@ font_data = ExtResource( 3 )
 size = 76
 outline_size = 10
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 0, 0, 0.654902 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 432
 font_data = ExtResource( 3 )
 
 [node name="Game" type="Node2D"]
@@ -391,6 +399,25 @@ bbcode_enabled = true
 bbcode_text = "PB - [wave]0[/wave]"
 text = "PB - 0"
 script = ExtResource( 9 )
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 17 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Pause/PanelContainer"]
+margin_top = 280.0
+margin_right = 1920.0
+margin_bottom = 799.0
+custom_fonts/font = SubResource( 18 )
+text = "Paused"
+align = 1
 
 [connection signal="died" from="Player" to="CanvasLayer/Death/VBoxContainer/NewPB" method="_on_Player_died"]
 [connection signal="timeout" from="Player/AttackLine/AttackDelay" to="Player" method="_on_AttackDelay_timeout"]

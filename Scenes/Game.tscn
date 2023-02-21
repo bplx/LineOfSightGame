@@ -9,8 +9,8 @@
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/AttackLine.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/PB.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/NewPB.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Pause.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/NewPB.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=11]
 
 [sub_resource type="SegmentShape2D" id=4]
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/coolvetica condensed rg.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 142
+font_data = ExtResource( 2 )
+
+[node name="Button" type="Button"]
+margin_right = 488.0
+margin_bottom = 178.0
+custom_fonts/font = SubResource( 3 )
+text = "1"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

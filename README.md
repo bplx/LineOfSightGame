@@ -12,9 +12,9 @@
 Sorry for the inconvienence. When the game is actually worth playing i'll put binaries for Linux and Windows.
 
 # TODO's:
-- ~~Make the wall texture something other than `icon.png`~~ Done
-- ~~Add a title screen~~ Done
-- ~~Add score and related effects~~ Done
+- ~~Make the wall texture something other than `icon.png`~~ **Done!**
+- ~~Add a title screen~~ **Done!**
+- ~~Add score and related effects~~ **Done!**
 
 # Credits
 All art and code is by me, so far. (except `icon.png` of course)

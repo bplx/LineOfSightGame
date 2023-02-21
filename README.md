@@ -1,5 +1,6 @@
 # Line Of Sight
-![image](https://user-images.githubusercontent.com/74569315/220182068-0c63fc99-7c3e-477c-b71a-cbd0f3816661.png)
+![image](https://user-images.githubusercontent.com/74569315/220395387-04b0f70e-e025-4805-ab81-7add6ca0da06.png)
+
 ### Use your lazer to move around and zap your enemies (controlled by your mouse!)
 
 # Build instructions
@@ -11,9 +12,9 @@
 Sorry for the inconvienence. When the game is actually worth playing i'll put binaries for Linux and Windows.
 
 # TODO's:
-- Make the wall texture something other than `icon.png`
-- Add a title screen
-- Add score and related effects
+- ~~Make the wall texture something other than `icon.png`~~ **Done!**
+- ~~Add a title screen~~ **Done!**
+- ~~Add score and related effects~~ **Done!**
 
 # Credits
 All art and code is by me, so far. (except `icon.png` of course)

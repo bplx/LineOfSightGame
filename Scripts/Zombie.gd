@@ -21,9 +21,10 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	#velocity = move_and_slide(velocity)
 
-func die():
+func die(comboCounter):
 	print("OWEI!!!")
-	Globals.score += 1
+	Globals.score += comboCounter
+	$Label.text = "+"+str(comboCounter)
 	var object = deathParticles.instance()
 	object.position = position
 	object.emitting = true

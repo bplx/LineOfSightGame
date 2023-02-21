@@ -34,10 +34,12 @@ func _process(_delta):
 			attack_active = true
 			
 		if attack_active == true:
+			var comboCounter = 1
 			for i in $AttackLine/Area2D.get_overlapping_bodies():
 				if i.is_in_group("Enemies"):
 					print("AAAA")
-					i.die()
+					i.die(comboCounter)
+					comboCounter += 1
 			
 		attack_active = false
 	if dead == true:

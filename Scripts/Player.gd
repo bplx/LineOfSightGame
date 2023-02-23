@@ -4,7 +4,7 @@ signal died
 
 
 onready var audioplayer = $AudioStreamPlayer2D
-
+var upgraded = 0
 var velocity = Vector2.ZERO
 var mv = Vector2.ZERO
 var dead = false
@@ -53,8 +53,32 @@ func _process(_delta):
 			$AnimationPlayer.play("End")
 	
 
+func upgrade():
+	if Globals.score >= 70 and upgraded == 60:
+		$AnimationPlayer.play("Upgrade")
+		$AttackLine/AttackDelay.wait_time -= 0.1
+		upgraded = 70
+	elif Globals.score >= 60 and upgraded == 40:
+		$AnimationPlayer.play("Upgrade")
+		$AttackLine/AttackDelay.wait_time -= 0.1
+		upgraded = 60
+	elif Globals.score >= 40 and upgraded == 20:
+		$AnimationPlayer.play("Upgrade")
+		$AttackLine/AttackDelay.wait_time -= 0.1
+		upgraded = 40
+	elif Globals.score >= 20 and upgraded == 10:
+		$AnimationPlayer.play("Upgrade")
+		$AttackLine/AttackDelay.wait_time -= 0.1
+		upgraded = 20
+	elif Globals.score >= 10 and upgraded == 0:
+		$AnimationPlayer.play("Upgrade")
+		$AttackLine/AttackDelay.wait_time -= 0.1
+		upgraded = 10
 
 func _physics_process(delta):
+	
+	
+	upgrade()
 	mv = position.direction_to(get_global_mouse_position())
 	velocity += mv.normalized() * 500 * delta
 	velocity = move_and_slide(velocity)

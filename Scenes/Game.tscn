@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/PlayerCam.gd" type="Script" id=2]
@@ -161,6 +161,21 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CanvasLayer/Upgrades:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=13]
 resource_name = "Start"
 tracks/0/type = "value"
@@ -174,6 +189,45 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 0.196146, 4.14106 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Upgrade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CanvasLayer/Upgrades:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 0.217638, 1, 1, 0.217638 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CanvasLayer/Upgrades:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CanvasLayer/Upgrades:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 0.176777, 3.86375, 0.176777 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 30 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -229,6 +283,19 @@ bg_color = Color( 0, 0, 0, 0.654902 )
 
 [sub_resource type="DynamicFont" id=18]
 size = 432
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 239
+outline_size = 20
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 89
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Game" type="Node2D"]
@@ -289,7 +356,9 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 anims/Die = SubResource( 7 )
 anims/End = SubResource( 12 )
+anims/RESET = SubResource( 21 )
 anims/Start = SubResource( 13 )
+anims/Upgrade = SubResource( 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
@@ -436,6 +505,30 @@ margin_right = 1920.0
 margin_bottom = 799.0
 custom_fonts/font = SubResource( 18 )
 text = "Paused"
+align = 1
+
+[node name="Upgrades" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Upgrades"]
+anchor_right = 1.0
+margin_bottom = 482.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Upgrades/VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 19 )
+text = "UPGRADE!"
+align = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Upgrades/VBoxContainer"]
+margin_top = 292.0
+margin_right = 1920.0
+margin_bottom = 400.0
+custom_fonts/font = SubResource( 20 )
+text = "-0.1s fire rate!"
 align = 1
 
 [connection signal="doneloading" from="." to="." method="_on_Game_doneloading"]

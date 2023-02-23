@@ -17,6 +17,7 @@ config/icon="res://Sprites/Game/icon.png"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+Music="*res://Scenes/Music.tscn"
 
 [display]
 

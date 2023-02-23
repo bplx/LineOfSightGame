@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://defaulttileset.tres" type="TileSet" id=1]
+
+[node name="Map" type="Node2D"]
+position = Vector2( 271, 278 )
+
+[node name="Background" type="TileMap" parent="."]
+position = Vector2( -271, -278 )
+tile_set = ExtResource( 1 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+cell_tile_origin = 1
+collision_use_kinematic = true
+format = 1
+
+[node name="Solids" type="TileMap" parent="."]
+position = Vector2( -271, -278 )
+tile_set = ExtResource( 1 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+cell_tile_origin = 1
+collision_use_kinematic = true
+format = 1

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/coolvetica condensed rg.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://MusicPopup.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 20.0
+content_margin_right = 1.0
+content_margin_top = 1.0
+content_margin_bottom = 1.0
+bg_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="DynamicFont" id=1]
+size = 53
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+
+[sub_resource type="Animation" id=3]
+resource_name = "Show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9, 3 ),
+"transitions": PoolRealArray( 0.0473662, 0.0426888, 0.0473662 ),
+"update": 0,
+"values": [ Vector2( -750, 858 ), Vector2( 0, 858 ), Vector2( -750, 858 ) ]
+}
+
+[node name="MusicPopup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -750.0
+margin_top = -222.0
+margin_right = -4.0
+margin_bottom = -125.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Label" type="Label" parent="PanelContainer"]
+margin_left = 20.0
+margin_top = 16.0
+margin_right = 745.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+text = "1080 Snowboarding - White oot"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 2 )
+anims/Show = SubResource( 3 )

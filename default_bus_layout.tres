@@ -1,0 +1,27 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=2]
+
+[sub_resource type="AudioEffectChorus" id=1]
+resource_name = "Chorus"
+
+[sub_resource type="AudioEffectReverb" id=2]
+resource_name = "Reverb"
+room_size = 0.19
+spread = 0.48
+wet = 0.24
+
+[sub_resource type="AudioEffectEQ" id=3]
+resource_name = "EQ"
+
+[resource]
+bus/1/name = "Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -2.91688
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = false
+bus/1/effect/1/effect = SubResource( 2 )
+bus/1/effect/1/enabled = false
+bus/1/effect/2/effect = SubResource( 3 )
+bus/1/effect/2/enabled = true

@@ -6,7 +6,6 @@ extends Button
 # var b = "text"
 var mapTo = 1
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,5 +18,7 @@ func _ready():
 
 func _on_Button_pressed():
 	Globals.map = mapTo
+	Music.stream = load(Globals.map_data[int(mapTo)-1]["music"])
+	Music.play()
 	get_tree().change_scene("res://Scenes/Game.tscn")
 	pass # Replace with function body.

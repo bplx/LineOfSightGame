@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 signal died
 
+
+onready var audioplayer = $AudioStreamPlayer2D
+
 var velocity = Vector2.ZERO
 var mv = Vector2.ZERO
 var dead = false
@@ -28,6 +31,9 @@ func _process(_delta):
 										  lerp(0.1, 1, $AttackLine/AttackDelay.time_left))
 										
 		if Input.is_action_just_pressed("fire") and attack_enabled:
+			audioplayer.stream = load("res://Sounds/Player/shoot.wav")
+			audioplayer.volume_db = -10
+			audioplayer.play()
 			$AttackLine.default_color = Color(1, 1, 1, 1)
 			$AttackLine/AttackDelay.start()
 			attack_enabled = false
@@ -52,13 +58,14 @@ func _physics_process(delta):
 	mv = position.direction_to(get_global_mouse_position())
 	velocity += mv.normalized() * 500 * delta
 	velocity = move_and_slide(velocity)
-	print((velocity.x + velocity.y*2)/1)
 	$Sprite/CPUParticles2D.scale_amount = abs((velocity.x + velocity.y*2)/50)
 
 	pass
 
 func die():
+	audioplayer.volume_db = 1
 	dead = true
+	audioplayer.stream = load("res://Sounds/Player/death.wav")
 	set_physics_process(false)
 	$Sprite/CPUParticles2D.emitting = false
 	emit_signal("died")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerCam.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/coolvetica condensed rg.otf" type="DynamicFontData" id=3]
 [ext_resource path="res://Sprites/Game/Player.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
@@ -10,6 +11,7 @@
 [ext_resource path="res://Scripts/PB.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/NewPB.gd" type="Script" id=10]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/MusicPopup.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SegmentShape2D" id=4]
 
@@ -113,6 +115,34 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 2.92817, 3.13834 ),
 "update": 0,
 "values": [ 0.0, 18.2 ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("Camera2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 10 ],
+"method": "add_trauma"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("AudioStreamPlayer2D")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -252,6 +282,7 @@ position = Vector2( -3.05176e-05, 0 )
 rotating = true
 current = true
 smoothing_enabled = true
+script = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="Player/Camera2D"]
 
@@ -283,10 +314,14 @@ angular_velocity_random = 0.37
 scale_amount = 33.26
 scale_amount_random = 1.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MusicPopup" parent="CanvasLayer" instance=ExtResource( 12 )]
 
 [node name="Death" type="Control" parent="CanvasLayer"]
 visible = false

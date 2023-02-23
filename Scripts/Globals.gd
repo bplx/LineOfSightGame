@@ -17,12 +17,13 @@ func list_files_in_directory(path):
 	
 	return files
 
-
-
-
 var score = 0
 var pb = 0
 var map = 1
+var map_data = [{"name":"LVL 1","music":"res://Music/WhiteOut1080.wav","musictitle":"1080 Snowboarding - White Out"},
+				{"name":"LVL 2","music":"res://Music/TetrisFast.wav","musictitle":"Tetris Splash - Insanely Fast"},
+				{"name":"LVL 3","music":"res://Music/WhiteOut1080.wav","musictitle":"IDK"},
+				{"name":"LVL 4","music":"res://Music/WhiteOut1080.wav","musictitle":"LOL"}]
 var list
 # Called when the node enters the scene tree for the first time.
 func _ready():

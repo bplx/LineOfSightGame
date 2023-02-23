@@ -14,7 +14,7 @@ func _ready():
 		var btn = button.instance()
 		btn.mapTo = i.rstrip(".tscn")
 		print(btn.mapTo)
-		btn.text = btn.mapTo
+		btn.text = Globals.map_data[int(btn.mapTo)-1]["name"]
 		add_child(btn)
 	pass # Replace with function body.
 

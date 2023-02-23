@@ -1,5 +1,7 @@
 extends KinematicBody2D
 onready var plr = get_tree().get_nodes_in_group("Player")[0]
+onready var plrcam = get_tree().get_nodes_in_group("Player")[0].get_node("Camera2D")
+onready var soundplayer = $AudioStreamPlayer2D
 var deathParticles = preload("res://Entities/ZombieDieParticles.tscn")
 var speed = 0
 var max_speed = 200
@@ -22,7 +24,9 @@ func _physics_process(delta):
 	#velocity = move_and_slide(velocity)
 
 func die(comboCounter):
+	soundplayer.play()
 	print("OWEI!!!")
+	plrcam.add_trauma(0.3)
 	Globals.score += comboCounter
 	$Label.text = "+"+str(comboCounter)
 	var object = deathParticles.instance()
